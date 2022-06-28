@@ -17,6 +17,9 @@ Node.js
 ## Required
 .NET 6 SDK
 
+## Dependencies
+`dotnet restore`
+
 ## Config
 `src/appsetting.json`
 

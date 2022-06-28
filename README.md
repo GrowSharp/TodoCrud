@@ -18,7 +18,7 @@ Node.js
 .NET 6 SDK
 
 ## Dependencies
-`dotnet restore`
+`dotnet restore || dotnet build`
 
 ## Config
 `src/appsetting.json`

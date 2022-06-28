@@ -24,4 +24,4 @@ Node.js
 `src/appsetting.json`
 
 ## Run
-`dotnet TodoApi.dll`
+`dotnet build && dotnet TodoApi.dll`

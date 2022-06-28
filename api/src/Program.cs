@@ -1,7 +1,7 @@
-using TodoApi.Models;
+using Microsoft.OpenApi.Models;
+using TodoApi;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,14 +14,15 @@ builder.Services.AddCors(options =>
                     });
 });
 
-// Add services to the container.
 
 builder.Services.AddControllers();
+
 builder.Services.AddDbContext<TodoContext>();
+
 builder.Services.AddSwaggerGen(c =>
 {
   c.SwaggerDoc("v1",
-               new()
+               new OpenApiInfo
                {
                  Title = "TodoApi",
                  Version = "v1"
@@ -30,7 +31,6 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if(builder.Environment.IsDevelopment())
 {
   app.UseDeveloperExceptionPage();
@@ -41,8 +41,6 @@ if(builder.Environment.IsDevelopment())
 app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
